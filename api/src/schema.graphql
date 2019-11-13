@@ -1,7 +1,14 @@
 type User {
   id: ID!
-  name: String
+  firstName: String
+  lastName: String
+  age: Int
+  username: String
+  bio: String
   sex: String
+  location: String
+  phone: Int
+  email: String
   reviews_written: [Review] @relation(name: "WROTE", direction: "OUT")
   reviews_received: [Review] @relation(name: "REVIEWS", direction: "IN")
 

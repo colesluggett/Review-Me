@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { ListGroup, ListGroupItem } from 'reactstrap';
+import { ListGroup, ListGroupItem, ListGroupItemHeading, ListGroupItemText } from 'reactstrap';
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import { Link, BrowserRouter as Router, Route } from 'react-router-dom';
@@ -88,9 +88,16 @@ class ProfilePage extends Component {
                         <CardBody>
                           <CardTitle>{ userInfo.name }</CardTitle>
                           <CardSubtitle>{ userInfo.sex }</CardSubtitle>
-                          <CardText>
+                          <CardText className="reviewBoard">
                             {userInfo.reviews_received.map(review => {
                               return (
+                                <ListGroup>
+                                  <ListGroupItem active>
+                                    <ListGroupItemHeading>List group item heading</ListGroupItemHeading>
+                                    <ListGroupItemText>
+                                      Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                                    </ListGroupItemText>
+                                  </ListGroupItem>
                                 <ul className="List">
                                   <li><strong>Reviewed By: {review.reviewWriter.name}</strong></li>
                                   <li>Rating: {review.stars}/5</li>
