@@ -1,0 +1,36 @@
+type User {
+  id: ID!
+  name: String
+  sex: String
+  reviews_written: [Review] @relation(name: "WROTE", direction: "OUT")
+  reviews_received: [Review] @relation(name: "REVIEWS", direction: "IN")
+
+  avgStars: Float
+    @cypher(
+      statement: "MATCH (this)-[:WROTE]->(r:Review) RETURN toFloat(avg(r.stars))"
+    )
+  numReviews: Int
+    @cypher(statement: "MATCH (this)-[:WROTE]->(r:Review) RETURN COUNT(r)")
+}
+
+type Review {
+  id: ID!
+  stars: Int
+  text: String
+  dateOfReview: Date
+  reviewWriter: User @relation(name: "WROTE", direction: "IN")
+  reviewReceiver: User @relation(name: "REVIEWS", direction: "OUT")
+}
+
+type Query {
+  usersBySubstring(substring: String): [User]
+    @cypher(
+      statement: "MATCH (u:User) WHERE u.name CONTAINS $substring RETURN u"
+    )
+}
+
+# type Query {
+#   reviews:[Review]
+#   reviewById(id:ID!):Review
+# }
+
