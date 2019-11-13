@@ -35,12 +35,12 @@ h3{
   text-decoration:none;
 }
 
-.ppContainer {
+.picContainer {
   position: relative;
   margin: 0 auto;
-  width: 10%; /* The size you want */
+  width: 150px; /* The size you want */
 }
-.ppContainer:after {
+.picContainer:after {
   content: "";
   display: block;
   padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */

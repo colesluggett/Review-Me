@@ -82,7 +82,7 @@ class ProfilePage extends Component {
               <ul className="list">
                     <div>
                       <Card>
-                      <div className="ppContainer">
+                      <div className="picContainer">
                         <CardImg className="profilePic" top src={process.env.PUBLIC_URL + "/img/pp.jpg"} alt="Card image cap" />
                       </div>
                         <CardBody>
