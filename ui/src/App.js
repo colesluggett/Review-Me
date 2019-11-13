@@ -31,8 +31,8 @@ class Users extends Component {
 
           return (
             <div>
-              <h3>USERS</h3>
-              <ListGroup>
+              <ListGroup className="usersBoard">
+                <ListGroupItem className="justify-content-between">Users</ListGroupItem>
                 {data.User.map(user => {
                   return (
                     <ListGroupItem className="justify-content-between"><Link to={`/user/${user.name}`} className="link">{user.name}</Link></ListGroupItem>
@@ -79,41 +79,42 @@ class ProfilePage extends Component {
           let userInfo = data.User[0];
           return (
             <div>
-              <ul className="list">
-                    <div>
-                      <Card>
-                      <div className="picContainer">
-                        <CardImg className="profilePic" top src={process.env.PUBLIC_URL + "/img/pp.jpg"} alt="Card image cap" />
-                      </div>
-                        <CardBody>
-                          <CardTitle>{ userInfo.name }</CardTitle>
-                          <CardSubtitle>{ userInfo.sex }</CardSubtitle>
-                          <CardText className="reviewBoard">
-                            {userInfo.reviews_received.map(review => {
-                              return (
-                                <ListGroup>
-                                  <ListGroupItem active>
-                                    <ListGroupItemHeading>List group item heading</ListGroupItemHeading>
-                                    <ListGroupItemText>
-                                      Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+              <div>
+                <Card>
+                  <div className="picContainer">
+                    <img className="profilePic" src={process.env.PUBLIC_URL + "/img/pp.jpg"} alt="profile pic" />
+                  </div>
+                  <CardBody>
+                    <CardTitle>{userInfo.name}</CardTitle>
+                    {/* <CardSubtitle className="basicInfo">{userInfo.sex}</CardSubtitle> */}
+                    <Button>Write Review</Button>
+                    <CardText className="reviewBoard">
+                      <ListGroup>
+                      {userInfo.reviews_received.map(review => {
+                        return (
+                          <div>
+                            <ListGroupItem className="reviewHeader">Reviews</ListGroupItem>
+                            <ListGroupItem>
+                              <ListGroupItemHeading className="reviewTitle">
+                                {review.reviewWriter.name} - title will go here
+                                    </ListGroupItemHeading>
+                              <ListGroupItemHeading className="reviewStars">
+                                {review.stars}/5
+                                    </ListGroupItemHeading>
+                              <ListGroupItemText className="reviewText">
+                                {review.text}
                                     </ListGroupItemText>
-                                  </ListGroupItem>
-                                </ListGroup>
-                                <ul className="List">
-                                  <li><strong>Reviewed By: {review.reviewWriter.name}</strong></li>
-                                  <li>Rating: {review.stars}/5</li>
-                                  <li>Comment: {review.text}</li>
-                                </ul>
-                              );
-                            })
-                          }
-                          </CardText>
-                          <Button>Button</Button>
-                        </CardBody>
-                      </Card>
-                    </div>
-                  );
-              </ul>
+                            </ListGroupItem>
+                          </div>
+                        );
+                      })
+                      }
+                      </ListGroup>
+                    </CardText>
+                    
+                  </CardBody>
+                </Card>
+              </div>
             </div>
           );
         }
@@ -152,6 +153,15 @@ const UserPage = ({ match, location }) => {
     </>
   );
 };
+const LoginPage = ({ match, location }) => {
+  const { params: { name } } = match;
+
+  return (
+    <>
+      <h1>Log in</h1>
+    </>
+  );
+};
 
 class App extends Component {
   render() {
@@ -163,13 +173,14 @@ class App extends Component {
               <Router>
                 <Navigation />
                 <div class="main-content-container container-fluid px-4">
-                  
-                    <Route exact path="/" component={IndexPage} />
-                    <Route exact path="/users" component={UsersPage} />
-                    <Route exact path="/user/:name" component={UserPage} />
-                  
+
+                  <Route exact path="/" component={IndexPage} />
+                  <Route exact path="/users" component={UsersPage} />
+                  <Route exact path="/login" component={LoginPage} />
+                  <Route exact path="/user/:name" component={UserPage} />
+
                 </div>
-            </Router>
+              </Router>
             </main>
           </div>
         </div>

@@ -42,7 +42,10 @@ export class Navigation extends Component {
                                 <NavLink tag={Link} to="/">Home</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink tag={Link} to="/Users">Users</NavLink>
+                                <NavLink tag={Link} to="/users">Users</NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink tag={Link} to="/login">Log in</NavLink>
                             </NavItem>
                         </Nav>
                     </Collapse>
