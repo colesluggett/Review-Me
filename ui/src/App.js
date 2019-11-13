@@ -98,6 +98,7 @@ class ProfilePage extends Component {
                                       Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
                                     </ListGroupItemText>
                                   </ListGroupItem>
+                                </ListGroup>
                                 <ul className="List">
                                   <li><strong>Reviewed By: {review.reviewWriter.name}</strong></li>
                                   <li>Rating: {review.stars}/5</li>

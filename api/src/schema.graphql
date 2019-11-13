@@ -23,6 +23,7 @@ type User {
 type Review {
   id: ID!
   stars: Int
+  title: String
   text: String
   dateOfReview: Date
   reviewWriter: User @relation(name: "WROTE", direction: "IN")
