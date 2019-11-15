@@ -1,9 +1,9 @@
 type User {
   id: ID!
+  username: String
   firstName: String
   lastName: String
   age: Int
-  username: String
   bio: String
   sex: String
   location: String

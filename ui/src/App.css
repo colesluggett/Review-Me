@@ -97,8 +97,13 @@ h3{
   padding: .75em;
 }
 
-.list-group-item:first-child{
-  background-color: #b5f5ff;
+.list-group-item{
+  background-color: #f0f0f0;
+  color: black;
+}
+
+.list-group-item .reviewHeader{
+  background-color: #00eeff;
   color: black;
 }
 
@@ -107,7 +112,7 @@ h3{
 }
 
 .list-group-item:first-child:hover{
-  background-color: #b5f5ff;
+  background-color: #ffffff;
   color: black;
 }
 

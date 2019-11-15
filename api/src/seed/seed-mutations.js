@@ -1,29 +1,29 @@
 export default /* GraphQL */ `
   mutation {
-    u1: CreateUser(id: "u1", firstName: "Will", lastName: "Smith", age: 23, username: "willsmith", bio: "Hi, I'm Will", sex: "Male", location:"Bozeman, MT", phone:4061231234, email:"email@email.com") {
+    u1: CreateUser(id: "u1", username: "willsmith", firstName: "Will", lastName: "Smith", sex: "Male", age: 23, bio: "Hi, I'm Will", location:"Bozeman, MT", phone:4064, email:"email@email.com") {
       id
-      name
+      username
     }
-    u2: CreateUser(id: "u2", firstName: "Katie",lastName:"Wong", sex: "Female", age: 18, username: "katiewong",bio:"This is Katie's profile",location:"Bozeman, MT", phone:4061231233, email:"email@gmail.com") {
+    u2: CreateUser(id: "u2", username: "katiewong", firstName: "Katie",lastName:"Wong", sex: "Female", age: 18,bio:"This is Katie's profile",location:"Bozeman, MT", phone:4063, email:"email@gmail.com") {
       id
-      name
+      username
     }
-    u3: CreateUser(id: "u3", firstName: "Cole", lastName:"Sluggett", sex: "Male", age: 21, username: "colesluggett", bio:"Hello",location:"Bozeman, MT", phone:4061231254, email:"co.sluggett@gmail.com") {
+    u3: CreateUser(id: "u3", username: "colesluggett", firstName: "Cole", lastName:"Sluggett", sex: "Male", age: 21,  bio:"Hello",location:"Bozeman, MT", phone:4064, email:"co.sluggett@gmail.com") {
       id
-      name
+      username
     }
-    u4: CreateUser(id: "u4", firstName: "Kayla",lastName:"Wheeler", sex: "Female",age: 21, username:"kaylawheeler",bio:"Hi there", location:"Bozeman, MT", phone:4061221234, email:"kaylaawheelerr@gmail.com") {
+    u4: CreateUser(id: "u4", username:"kaylawheeler", firstName: "Kayla",lastName:"Wheeler", sex: "Female",age: 21, bio:"Hi there", location:"Bozeman, MT", phone:4034, email:"kaylaawheelerr@gmail.com") {
       id
-      name
+      username
     }
-    u5: CreateUser(id: "u5", firstName: "Dylan", lastName: "Lynn", sex: "Male", age: 25, username:"dylanlynn",bio:"hi" location:"Bozeman, MT", phone:4061237234, email:"dlynn@gmail.com") {
+    u5: CreateUser(id: "u5", username:"dylanlynn", firstName: "Dylan", lastName: "Lynn", sex: "Male", age: 25, bio:"hi", location:"Bozeman, MT", phone:4034, email:"dlynn@gmail.com") {
       id
-      name
+      username
     }
 
     
     
-    r1: CreateReview(id: "r1", stars: 3, text: "Pretty good group member for our project.", dateOfReview: { formatted: "2016-01-03"}) {
+    r1: CreateReview(id: "r1", title: "Good Job!", stars: 3, text: "Pretty good group member for our project.", dateOfReview: { formatted: "2016-01-03"}) {
       id
     }
     aw1: AddUserReviews_written(from: { id: "u1" }, to: { id: "r1" }) {
@@ -37,7 +37,7 @@ export default /* GraphQL */ `
       }
     }
 
-    r2: CreateReview(id: "r2", stars: 5, text: "Thanks for buying me lunch!", dateOfReview: { formatted: "2016-07-14"}) {
+    r2: CreateReview(id: "r2", title: "You are Awesome!", stars: 5, text: "Thanks for buying me lunch!", dateOfReview: { formatted: "2016-07-14"}) {
       id
     }
     ar2: AddUserReviews_written(from: { id: "u3" }, to: { id: "r2" }) {
@@ -51,7 +51,7 @@ export default /* GraphQL */ `
       }
     }
 
-    r3: CreateReview(id: "r3", stars: 3, text: "Loser. KYS", dateOfReview: { formatted: "2018-09-10"}) {
+    r3: CreateReview(id: "r3", title: "Bad Friend!", stars: 3, text: "Don't appreciate your humor and you can be very rude.", dateOfReview: { formatted: "2018-09-10"}) {
       id
     }
     ar3: AddUserReviews_written(from: { id: "u4" }, to: { id: "r3" }) {
@@ -65,7 +65,7 @@ export default /* GraphQL */ `
       }
     }
 
-    r4: CreateReview(id: "r4", stars: 4, text: "Favorite workout buddy", dateOfReview: { formatted: "2017-11-13"}) {
+    r4: CreateReview(id: "r4", title: "Gains!", stars: 4, text: "Favorite workout buddy", dateOfReview: { formatted: "2017-11-13"}) {
       id
     }
     ar4: AddUserReviews_written(from: { id: "u2" }, to: { id: "r4" }) {
@@ -79,7 +79,7 @@ export default /* GraphQL */ `
       }
     }
 
-    r5: CreateReview(id: "r5", stars: 5, text: "Great Friend", dateOfReview: { formatted: "2017-11-13"}) {
+    r5: CreateReview(id: "r5", title: "Thanks!", stars: 5, text: "Great Friend", dateOfReview: { formatted: "2017-11-13"}) {
       id
     }
     ar5: AddUserReviews_written(from: { id: "u3" }, to: { id: "r5" }) {
@@ -93,7 +93,7 @@ export default /* GraphQL */ `
       }
     }
 
-    r6: CreateReview(id: "r5", stars: 5, text: "Thanks for the ride to work", dateOfReview: { formatted: "2017-11-13"}) {
+    r6: CreateReview(id: "r6", title: "Good Job!", stars: 5, text: "Thanks for the ride to work", dateOfReview: { formatted: "2017-11-13"}) {
       id
     }
     ar6: AddUserReviews_written(from: { id: "u5" }, to: { id: "r6" }) {
@@ -107,7 +107,7 @@ export default /* GraphQL */ `
       }
     }
 
-    r7: CreateReview(id: "r5", stars: 3, text: "Pretty cool co-worker", dateOfReview: { formatted: "2017-11-13"}) {
+    r7: CreateReview(id: "r7", title: "Love!", stars: 3, text: "Pretty cool co-worker", dateOfReview: { formatted: "2017-11-13"}) {
       id
     }
     ar7: AddUserReviews_written(from: { id: "u5" }, to: { id: "r7" }) {
@@ -122,7 +122,7 @@ export default /* GraphQL */ `
     }
 
 
-    r8: CreateReview(id: "r5", stars: 5, text: "Best Manager!", dateOfReview: { formatted: "2017-11-13"}) {
+    r8: CreateReview(id: "r8", title: "Good Job!", stars: 5, text: "Best Manager!", dateOfReview: { formatted: "2017-11-13"}) {
       id
     }
     ar8: AddUserReviews_written(from: { id: "u3" }, to: { id: "r8" }) {
@@ -136,7 +136,7 @@ export default /* GraphQL */ `
       }
     }
 
-    r9: CreateReview(id: "r5", stars: 4, text: "Very easy to work with", dateOfReview: { formatted: "2017-11-13"}) {
+    r9: CreateReview(id: "r9", title: "Good Job!", stars: 4, text: "Very easy to work with", dateOfReview: { formatted: "2017-11-13"}) {
       id
     }
     ar9: AddUserReviews_written(from: { id: "u1" }, to: { id: "r9" }) {
@@ -150,7 +150,7 @@ export default /* GraphQL */ `
       }
     }
 
-    r10: CreateReview(id: "r5", stars: 2, text: "Didn't help much with the project", dateOfReview: { formatted: "2017-11-13"}) {
+    r10: CreateReview(id: "r10", title: "Negative!", stars: 2, text: "Didn't help much with the project", dateOfReview: { formatted: "2017-11-13"}) {
       id
     }
     ar10: AddUserReviews_written(from: { id: "u2" }, to: { id: "r10" }) {
@@ -164,7 +164,7 @@ export default /* GraphQL */ `
       }
     }
 
-    r11: CreateReview(id: "r5", stars: 4, text: "Very helpful", dateOfReview: { formatted: "2017-11-13"}) {
+    r11: CreateReview(id: "r11", title: "Very Helpful!", stars: 4, text: "Very helpful", dateOfReview: { formatted: "2017-11-13"}) {
       id
     }
     ar11: AddUserReviews_written(from: { id: "u1" }, to: { id: "r11" }) {
@@ -178,7 +178,7 @@ export default /* GraphQL */ `
       }
     }
 
-    r12: CreateReview(id: "r5", stars: 5, text: "Great Friend", dateOfReview: { formatted: "2017-11-13"}) {
+    r12: CreateReview(id: "r12", title: "Hey!", stars: 5, text: "Great Friend", dateOfReview: { formatted: "2017-11-13"}) {
       id
     }
     ar12: AddUserReviews_written(from: { id: "u3" }, to: { id: "r12" }) {
