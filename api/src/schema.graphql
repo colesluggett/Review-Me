@@ -1,14 +1,17 @@
 type User {
   id: ID!
-  username: String
+  username: String!
   firstName: String
   lastName: String
   age: Int
   bio: String
   sex: String
-  location: String
-  phone: Int
-  email: String
+  location: String!
+  phone: String!
+  email: String!
+  password: String!
+  # verified: Boolean!
+  # vip: Boolean!
   reviews_written: [Review] @relation(name: "WROTE", direction: "OUT")
   reviews_received: [Review] @relation(name: "REVIEWS", direction: "IN")
 
@@ -26,6 +29,7 @@ type Review {
   title: String
   text: String
   dateOfReview: Date
+  #score: Int
   reviewWriter: User @relation(name: "WROTE", direction: "IN")
   reviewReceiver: User @relation(name: "REVIEWS", direction: "OUT")
 }

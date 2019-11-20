@@ -1,22 +1,22 @@
 export default /* GraphQL */ `
   mutation {
-    u1: CreateUser(id: "u1", username: "willsmith", firstName: "Will", lastName: "Smith", sex: "Male", age: 23, bio: "Hi, I'm Will", location:"Bozeman, MT", phone:4064, email:"email@email.com") {
+    u1: CreateUser(id: "u1", username: "willsmith", firstName: "Will", lastName: "Smith", sex: "Male", age: 23, bio: "Hi, I'm Will", location:"Bozeman, MT", phone:"1234567890", email:"email@email.com") {
       id
       username
     }
-    u2: CreateUser(id: "u2", username: "katiewong", firstName: "Katie",lastName:"Wong", sex: "Female", age: 18,bio:"This is Katie's profile",location:"Bozeman, MT", phone:4063, email:"email@gmail.com") {
+    u2: CreateUser(id: "u2", username: "katiewong", firstName: "Katie",lastName:"Wong", sex: "Female", age: 18,bio:"This is Katie's profile",location:"Bozeman, MT", phone:"1234567890", email:"email@gmail.com") {
       id
       username
     }
-    u3: CreateUser(id: "u3", username: "colesluggett", firstName: "Cole", lastName:"Sluggett", sex: "Male", age: 21,  bio:"Hello",location:"Bozeman, MT", phone:4064, email:"co.sluggett@gmail.com") {
+    u3: CreateUser(id: "u3", username: "colesluggett", firstName: "Cole", lastName:"Sluggett", sex: "Male", age: 21,  bio:"Hello",location:"Bozeman, MT", phone:"1234567890", email:"co.sluggett@gmail.com") {
       id
       username
     }
-    u4: CreateUser(id: "u4", username:"kaylawheeler", firstName: "Kayla",lastName:"Wheeler", sex: "Female",age: 21, bio:"Hi there", location:"Bozeman, MT", phone:4034, email:"kaylaawheelerr@gmail.com") {
+    u4: CreateUser(id: "u4", username:"kaylawheeler", firstName: "Kayla",lastName:"Wheeler", sex: "Female",age: 21, bio:"Hi there", location:"Bozeman, MT", phone:"1234567890", email:"kaylaawheelerr@gmail.com") {
       id
       username
     }
-    u5: CreateUser(id: "u5", username:"dylanlynn", firstName: "Dylan", lastName: "Lynn", sex: "Male", age: 25, bio:"hi", location:"Bozeman, MT", phone:4034, email:"dlynn@gmail.com") {
+    u5: CreateUser(id: "u5", username:"dylanlynn", firstName: "Dylan", lastName: "Lynn", sex: "Male", age: 25, bio:"hi", location:"Bozeman, MT", phone:"1234567890", email:"dlynn@gmail.com") {
       id
       username
     }
