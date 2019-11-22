@@ -1,17 +1,41 @@
 import React, { Component } from "react";
+import { Button, Container } from 'reactstrap';
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { SignUp } from './SignUp';
+import SignUp from './SignUp';
 import { Navigation } from './Navigation';
 import { Users } from './Users';
 import { ProfilePage } from './ProfilePage';
 
-const IndexPage = () => {
-  return (
-    <SignUp />
-  );
+class IndexPage extends Component{
+  state = { editing: null, };
+  render() {
+    const { editing } = this.state;
+    return(
+      <Container fluid>
+        <Button
+          className="my-2"
+          color="primary"
+          onClick={() => this.setState({ editing: {} })}
+        >
+          New Post
+        </Button>
+        <Users
+          canEdit={() => true}
+          onEdit={(post) => this.setState({ editing: post })}
+        />
+        {editing && (
+          <SignUp
+            post={editing}
+            onClose={() => this.setState({ editing: null })}
+          />
+        )}
+      </Container>
+    );
+  }
 };
+
 const AboutPage = () => {
   return (
     <h3>About Page</h3>

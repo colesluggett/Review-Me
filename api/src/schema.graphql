@@ -41,6 +41,24 @@ type Query {
     )
 }
 
+type Mutation {
+  createUser(input: UserInput!): User
+}
+
+input UserInput {
+  id: ID!
+  username: String!
+  firstName: String
+  lastName: String
+  age: Int
+  bio: String
+  sex: String
+  location: String!
+  phone: String!
+  email: String!
+  password: String!
+}
+
 # type Query {
 #   reviews:[Review]
 #   reviewById(id:ID!):Review
