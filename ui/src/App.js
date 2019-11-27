@@ -4,6 +4,8 @@ import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import SignUp from './SignUp';
+import WriteReview from './WriteReview';
+import { Home } from './Home'
 import { Navigation } from './Navigation';
 import { Users } from './Users';
 import { ProfilePage } from './ProfilePage';
@@ -18,10 +20,9 @@ class IndexPage extends Component{
           className="my-2"
           color="primary"
           onClick={() => this.setState({ editing: {} })}
-        >
-          New Post
+        >Create User
         </Button>
-        <Users
+        <Home
           canEdit={() => true}
           onEdit={(post) => this.setState({ editing: post })}
         />
@@ -36,21 +37,33 @@ class IndexPage extends Component{
   }
 };
 
-const AboutPage = () => {
-  return (
-    <h3>About Page</h3>
-  );
+class UsersPage extends Component {
+  state = { editing: null, };
+  render() {
+    const { editing } = this.state;
+    return (
+      <Container fluid>
+        <Button
+          className="my-2"
+          color="primary"
+          onClick={() => this.setState({ editing: {} })}
+        >Write Review
+        </Button>
+        <Users
+          canEdit={() => true}
+          onEdit={(post) => this.setState({ editing: post })}
+        />
+        {editing && (
+          <WriteReview
+            post={editing}
+            onClose={() => this.setState({ editing: null })}
+          />
+        )}
+      </Container>
+    );
+  }
 };
 
-const UsersPage = () => {
-  return (
-    <>
-      {
-        <Users />
-      }
-    </>
-  );
-};
 const UserPage = ({ match, location }) => {
   const { params: { username } } = match;
 
@@ -60,12 +73,13 @@ const UserPage = ({ match, location }) => {
     </>
   );
 };
+
 const LoginPage = ({ match, location }) => {
   const { params: { name } } = match;
 
   return (
     <>
-      <h1>Log in</h1>
+      <h1>In development</h1>
     </>
   );
 };

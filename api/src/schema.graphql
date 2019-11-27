@@ -28,7 +28,7 @@ type Review {
   stars: Int
   title: String
   text: String
-  dateOfReview: Date
+  # dateOfReview: Date
   #score: Int
   reviewWriter: User @relation(name: "WROTE", direction: "IN")
   reviewReceiver: User @relation(name: "REVIEWS", direction: "OUT")

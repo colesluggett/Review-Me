@@ -37,6 +37,7 @@ export class ProfilePage extends Component {
                   username
                   firstName
                   lastName
+                  id
                   sex
                   location
                 }
@@ -58,6 +59,7 @@ export class ProfilePage extends Component {
                                     <CardBody>
                                         <CardTitle>{userInfo.firstName} {userInfo.lastName}</CardTitle>
                                         <CardSubtitle className="basicInfo">{userInfo.location}</CardSubtitle>
+                                        <CardSubtitle className="basicInfo">ID: {userInfo.id}</CardSubtitle>
                                         <Button>Write Review</Button>
                                         <CardText className="reviewBoard">
                                             <ListGroup>
@@ -72,7 +74,7 @@ export class ProfilePage extends Component {
                                                                 </ListGroupItemHeading>
                                                                 <ListGroupItemHeading className="reviewStars">
                                                                     {review.stars}/5
-                                    </ListGroupItemHeading>
+                                                                </ListGroupItemHeading>
                                                                 <ListGroupItemText className="reviewText">
                                                                     {review.text}
                                                                 </ListGroupItemText>

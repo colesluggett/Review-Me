@@ -15,10 +15,43 @@ import {
 import { Form as FinalForm, Field } from 'react-final-form';
 import client from './index';
 
+function getId() {
+  var result = '';
+  var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var charactersLength = characters.length;
+  for (var i = 0; i < 8; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
 
 const CREATE_USER = gql`
-  mutation CreateUser($input: UserInput!) {
-    createUser(input: $input) {
+  mutation CreateUser
+    (
+        $id: ID!, 
+        $username: String!, 
+        $firstName: String, 
+        $lastName: String, 
+        $age: Int, 
+        $bio: String, 
+        $sex: String, 
+        $location: String!, 
+        $phone: String!, 
+        $email: String!,
+        $password: String!) 
+            {CreateUser
+                (
+                    id: $id, 
+                    username: $username, 
+                    firstName: $firstName, 
+                    lastName: $lastName, 
+                    sex: $sex, 
+                    age: $age, 
+                    bio: $bio, 
+                    location: $location, 
+                    phone: $phone, 
+                    email: $email,
+                    password: $password) {
       id
       username
     }
@@ -40,6 +73,8 @@ const SignUp = ({ post, onClose }) => (
     onSubmit={async({
       id,
       username,
+      firstName,
+      lastName,
       location,
       phone,
       email,
@@ -47,14 +82,16 @@ const SignUp = ({ post, onClose }) => (
       const input = {
         id,
         username,
+        firstName,
+        lastName,
         location,
         phone,
         email,
         password };
 
       await client.mutate({
-        variables: { input },
         mutation: CREATE_USER,
+        variables: { id: getId(), username: input.username, firstName: input.firstName, lastName: input.lastName, location: input.location, phone: input.phone, email: input.email, password: input.password },
         refetchQueries: () => [{ query: GET_USER }],
       });
       onClose();
@@ -72,6 +109,24 @@ const SignUp = ({ post, onClose }) => (
               <Field
                 required
                 name="username"
+                className="form-control"
+                component="input"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label>First Name</Label>
+              <Field
+                required
+                name="firstName"
+                className="form-control"
+                component="input"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label>Last Name</Label>
+              <Field
+                required
+                name="lastName"
                 className="form-control"
                 component="input"
               />
@@ -114,7 +169,7 @@ const SignUp = ({ post, onClose }) => (
             </FormGroup>
           </ModalBody>
           <ModalFooter>
-            <Button type="submit" disabled={pristine} color="primary">Save</Button>
+            <Button type="submit" disabled={pristine} color="primary">Create User</Button>
             <Button color="secondary" onClick={onClose}>Cancel</Button>
           </ModalFooter>
         </Form>
