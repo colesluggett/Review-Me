@@ -11,6 +11,7 @@ import {
     Card, CardText, CardBody,
     CardTitle, CardSubtitle, Button
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export class ProfilePage extends Component {
     constructor(props) {
@@ -60,7 +61,6 @@ export class ProfilePage extends Component {
                                         <CardTitle>{userInfo.firstName} {userInfo.lastName}</CardTitle>
                                         <CardSubtitle className="basicInfo">{userInfo.location}</CardSubtitle>
                                         <CardSubtitle className="basicInfo">ID: {userInfo.id}</CardSubtitle>
-                                        <Button>Write Review</Button>
                                         <CardText className="reviewBoard">
                                             <ListGroup>
                                                 <ListGroupItem className="reviewHeader">Reviews</ListGroupItem>
