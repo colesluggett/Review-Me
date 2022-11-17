@@ -18,7 +18,7 @@
     "react-dom": "^16.11.0",
     "react-final-form": "^3.6.5",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^2.1.1",
+    "react-scripts": "^5.0.1",
     "reactstrap": "^8.1.1",
     "serve": "^10.1.2",
     "with-hooks": "^1.0.1"
